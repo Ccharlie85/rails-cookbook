@@ -1,0 +1,7 @@
+<h1>Which receipe would you like to add to your <%= @category.name %> list?</h1>
+
+<%= simple_form_for[@category, @bookmark] do |f| %>
+  <%= f.input :comment, label: "Category Name" %>
+  <%= f.association :recipe %>
+  <%= f.button :submit, value: "Add Recipe" %>
+<% end %>

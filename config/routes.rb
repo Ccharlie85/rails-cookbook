@@ -16,9 +16,16 @@ Rails.application.routes.draw do
   # Use resources for categories with nested route for new
   resources :categories, only: [:index, :new]
 
-  get "categories", to: "categories#index"
-  get "categories/new", to: "categories#new"
-  get "categories/:id", to: "categories#show", as: :category
-  post "categories", to: "categories#create"
-  delete "categories/:id", to: "categories#destroy"
+  # get "categories", to: "categories#index"
+  # get "categories/new", to: "categories#new"
+  # get "categories/:id", to: "categories#show", as: :category
+  # post "categories", to: "categories#create"
+  # delete "categories/:id", to: "categories#destroy"
+
+  resources :categories, except: %i{edit update} do
+    resources :bookmarks, only: [:new create]
+  end
+
+  resouces :bookmark, only: [:destroy]
+
 end
