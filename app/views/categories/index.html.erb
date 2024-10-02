@@ -20,7 +20,7 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
     <li><%= link_to category.name.capitalize, category_path(category) %> <%= link_to "Delete", category_path(category), data: {turbo_method: :delete, turbo_confirm: "Are you Sure?"}%> </li>
     <p></p>
-    <%= linl to "delete", category_path(category), data: { turbo_method: :delete, turbo_confirm: "Are you Sure?" } %>
+    <%= link to "delete", category_path(category), data: { turbo_method: :delete, turbo_confirm: "Are you Sure?" } %>
   <% end %>
   </div>
 
