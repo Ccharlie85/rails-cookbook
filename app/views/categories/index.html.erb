@@ -6,17 +6,22 @@
 </div>
 
 
-<!-- app/views/articles/index.html.erb -->
-<%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
+<%#
+<%= cl_image_tag("uiebyzusyifec2wpzbd6",
       width: 400, height: 300, crop: :fill) %>
 
-<!-- for face detection -->
-<%= cl_image_tag("IMAGE_WITH_FACE_ID",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
-
-<h1>View your cookbook categories here</h1>
-<ul>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center py-3">
+    <h2>List of categories</h2>
+    <%= link_to "new category", new_category_path, class: "btn btn-primary btn-font-white" %>
+  </div>
+<div class="container">
   <% @categories.each do |category| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
     <li><%= link_to category.name.capitalize, category_path(category) %> <%= link_to "Delete", category_path(category), data: {turbo_method: :delete, turbo_confirm: "Are you Sure?"}%> </li>
+    <p></p>
+    <%= linl to "delete", category_path(category), data: { turbo_method: :delete, turbo_confirm: "Are you Sure?" } %>
   <% end %>
-</ul>
+  </div>
+
+ </div>
