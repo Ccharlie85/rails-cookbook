@@ -19,7 +19,7 @@ Recipe.create(name: "Spinach and Ricotta Cannelloni", description: "classic Ital
 categories = ["Pasta", "Seafood", "Dessert", "Chicken"]
 
 categories = each do |category|
-  url = "https://www.themealdb.com/api/json/v1/1/filter.php?c={category}"
+  url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=#{category}"
   meals_serialised = URI.parse(url).read
   meals = JSON.parse(meals_serialized)
 
@@ -27,3 +27,11 @@ categories = each do |category|
   p meals["idMeal"]
   end
 end
+
+url = "https://www.themealdb.com/api/json/v1/v/lookup.php?i=52772"
+meal_serialised = URI.parse(url).read
+  meal = JSON.parse(meal_serialized)
+
+  p meal["meals"][0]["strMeal"]
+  p meal["meals"][0]["strInstuctions"]
+  p meal["meals"][0]["strMealThumb"]
