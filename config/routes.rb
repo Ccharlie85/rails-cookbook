@@ -23,9 +23,9 @@ Rails.application.routes.draw do
   # delete "categories/:id", to: "categories#destroy"
 
   resources :categories, except: %i{edit update} do
-    resources :bookmarks, only: [:new create]
+    resources :bookmarks, only: [:new, :create]
   end
 
-  resouces :bookmark, only: [:destroy]
+  resources :bookmark, only: [:destroy]
 
 end
